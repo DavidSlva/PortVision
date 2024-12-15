@@ -2,6 +2,7 @@
 
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+import {API_BASE_URL} from "../../config.tsx";
 
 // Define la interfaz para una Predicción
 export interface Prediccion {
@@ -46,7 +47,7 @@ export const fetchPredicciones = createAsyncThunk<
             if (filtros.anio) params.anio = filtros.anio;
 
             const response = await axios.get<{ count: number; next: string | null; previous: string | null; results: Prediccion[] }>(
-                'http://localhost:8000/interpreter/predicciones/',
+                `${API_BASE_URL}interpreter/predicciones/`,
                 { params }
             );
             return response.data;

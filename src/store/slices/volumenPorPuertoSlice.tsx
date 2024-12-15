@@ -1,6 +1,7 @@
 // src/store/features/volumenPorPuerto/volumenPorPuertoSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import {API_BASE_URL} from "../../config.tsx";
 
 // Define la interfaz para un VolumenPorPuerto
 export interface VolumenPorPuerto {
@@ -40,7 +41,7 @@ export const fetchVolumenPorPuerto = createAsyncThunk<VolumenPorPuerto[], Filtro
             if (filtros.puerto) params.puerto = filtros.puerto;
 
             const response = await axios.get<{ count: number; next: string | null; previous: string | null; results: VolumenPorPuerto[] }>(
-                'http://localhost:8000/interpreter/volumen_por_puerto/',
+                `${API_BASE_URL}interpreter/volumen_por_puerto/`,
                 { params }
             );
             return response.data.results;

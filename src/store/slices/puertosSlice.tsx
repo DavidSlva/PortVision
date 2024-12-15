@@ -1,6 +1,7 @@
 // src/store/features/puertos/puertosSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import {API_BASE_URL} from "../../config.tsx";
 
 // Define la interfaz para un Puerto
 export interface Puerto {
@@ -31,7 +32,7 @@ export const fetchPuertos = createAsyncThunk<Puerto[]>(
     'puertos/fetchPuertos',
     async (_, thunkAPI) => {
         try {
-            const response = await axios.get<Puerto[]>('http://localhost:8000/collection_manager/puertos/');
+            const response = await axios.get<Puerto[]>(`${API_BASE_URL}collection_manager/puertos/`);
             return response.data?.filter((p) => p.pais === 997);
         } catch (error: any) {
             return thunkAPI.rejectWithValue(error.response?.data?.message || 'Error al cargar los puertos.');

@@ -1,9 +1,19 @@
-export type Page = 'dashboard' | 'historical' | 'predictions' | 'settings';
+export type Page = 'dashboard' | 'historical' | 'predictions' | 'settings' | 'puertos';
+
+export interface Muelle {
+  id: number;
+  nombre: string;
+  extension: number;
+  tipo?: string;
+  ubicacion?: string;
+}
+
 
 export interface Port {
   id: number;
   name: string;
   location: string;
+  muelles?: Muelle[];
 }
 
 export interface CargoVolume {
@@ -19,3 +29,5 @@ export interface Prediction {
   forecastDate: string;
   predictedVolume: number;
 }
+
+

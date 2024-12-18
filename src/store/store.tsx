@@ -5,13 +5,15 @@ import volumenAnualReducer from './slices/volumenAnualSlice';
 import puertosReducer from './slices/puertosSlice';
 import volumenPorPuertoReducer from './slices/volumenPorPuertoSlice';
 import prediccionesReducer from './slices/prediccionesSlice'; // Importa el nuevo slice
+import muellesReducer from './slices/muellesSlice';
 
 const store = configureStore({
     reducer: {
         volumenAnual: volumenAnualReducer,
         puertos: puertosReducer,
         volumenPorPuerto: volumenPorPuertoReducer,
-        predicciones: prediccionesReducer, // Añade el nuevo slice al store
+        predicciones: prediccionesReducer,
+        muelles: muellesReducer,
         // Añade otros reducers aquí si es necesario
     },
 });

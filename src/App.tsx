@@ -6,6 +6,7 @@ import { Predictions } from './pages/Predictions';
 import { Settings } from './pages/Settings';
 import { Page } from './types';
 import { ThemeProvider } from './contexts/ThemeContext';
+import {Puertos} from "./pages/Puertos.tsx";
 
 export default function App() {
   const [currentPage, setCurrentPage] = React.useState<Page>('dashboard');
@@ -18,6 +19,8 @@ export default function App() {
         return <Predictions />;
       case 'settings':
         return <Settings />;
+      case 'puertos':
+        return <Puertos />;
       default:
         return <Dashboard />;
     }

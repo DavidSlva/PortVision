@@ -47,6 +47,15 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
               <li>
                 <a
                   href="#"
+                  onClick={(e) => { e.preventDefault(); onNavigate('puertos'); }}
+                  className={`hover:text-indigo-200 ${currentPage === 'puertos' ? 'text-white font-semibold' : 'text-indigo-200'}`}
+                >
+                  Gestión de Puertos y Muelles
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
                   // onClick={(e) => { e.preventDefault(); onNavigate('settings'); }}
                   className={`hover:text-indigo-200 ${currentPage === 'settings' ? 'text-white font-semibold' : 'text-indigo-200'}`}
                 >
